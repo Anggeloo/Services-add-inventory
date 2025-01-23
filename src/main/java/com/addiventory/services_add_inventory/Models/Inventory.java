@@ -1,4 +1,4 @@
-package com.addiventory.services_add_inventory.Models;
+package com.inventorydelete.services_inventory_delete.Models;
 
 import java.time.LocalDateTime;
 
