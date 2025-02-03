@@ -1,4 +1,4 @@
-package com.addiventory.services_add_inventory.Models;
+package com.inventorydelete.services_inventory_delete.Models;
 
 import java.time.LocalDateTime;
 
@@ -28,11 +28,19 @@ public class Inventory {
     @Column(name = "status")
     private Boolean status;
 
+<<<<<<< HEAD
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+=======
+    @Column(name = "creation_date", updatable = false)
+    private LocalDateTime creationDate;
+
+    @Column(name = "update_date")
+    private LocalDateTime updateDate;
+>>>>>>> c90c5fb34d32771307f8cd379ab1d055d4297bee
 
     // Getters and setters
     public Integer getInventoryId() {
@@ -75,6 +83,7 @@ public class Inventory {
         this.status = status;
     }
 
+<<<<<<< HEAD
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -89,6 +98,22 @@ public class Inventory {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+=======
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public LocalDateTime getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(LocalDateTime updateDate) {
+        this.updateDate = updateDate;
+>>>>>>> c90c5fb34d32771307f8cd379ab1d055d4297bee
     }
 }
 
