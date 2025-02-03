@@ -10,85 +10,85 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "inventario")
+@Table(name = "inventory")
 public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idInventario;
+    private Integer inventoryId;
 
-    @Column(name = "codigo_inventario", unique = true)
-    private String codigoInventario;
+    @Column(name = "inventory_code", unique = true)
+    private String inventoryCode;
 
-    @Column(name = "codigo_producto")
-    private String codigoProducto;
+    @Column(name = "product_code")
+    private String productCode;
 
-    @Column(name = "cantidad_disponible")
-    private Integer cantidadDisponible;
+    @Column(name = "available_quantity")
+    private Integer availableQuantity;
 
-    @Column(name = "estado")
-    private Boolean estado;
+    @Column(name = "status")
+    private Boolean status;
 
-    @Column(name = "fecha_creacion", updatable = false)
-    private LocalDateTime fechaCreacion;
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt;
 
-    @Column(name = "fecha_actualizacion")
-    private LocalDateTime fechaActualizacion;
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 
     // Getters and setters
-    public Integer getIdInventario() {
-        return idInventario;
+    public Integer getInventoryId() {
+        return inventoryId;
     }
 
-    public void setIdInventario(Integer idInventario) {
-        this.idInventario = idInventario;
+    public void setInventoryId(Integer inventoryId) {
+        this.inventoryId = inventoryId;
     }
 
-    public String getCodigoInventario() {
-        return codigoInventario;
+    public String getInventoryCode() {
+        return inventoryCode;
     }
 
-    public void setCodigoInventario(String codigoInventario) {
-        this.codigoInventario = codigoInventario;
+    public void setInventoryCode(String inventoryCode) {
+        this.inventoryCode = inventoryCode;
     }
 
-    public String getCodigoProducto() {
-        return codigoProducto;
+    public String getProductCode() {
+        return productCode;
     }
 
-    public void setCodigoProducto(String codigoProducto) {
-        this.codigoProducto = codigoProducto;
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
     }
 
-    public Integer getCantidadDisponible() {
-        return cantidadDisponible;
+    public Integer getAvailableQuantity() {
+        return availableQuantity;
     }
 
-    public void setCantidadDisponible(Integer cantidadDisponible) {
-        this.cantidadDisponible = cantidadDisponible;
+    public void setAvailableQuantity(Integer availableQuantity) {
+        this.availableQuantity = availableQuantity;
     }
 
-    public Boolean getEstado() {
-        return estado;
+    public Boolean getStatus() {
+        return status;
     }
 
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
-    public LocalDateTime getFechaCreacion() {
-        return fechaCreacion;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setFechaCreacion(LocalDateTime fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public LocalDateTime getFechaActualizacion() {
-        return fechaActualizacion;
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setFechaActualizacion(LocalDateTime fechaActualizacion) {
-        this.fechaActualizacion = fechaActualizacion;
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
 

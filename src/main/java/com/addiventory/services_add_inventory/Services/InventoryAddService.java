@@ -26,26 +26,27 @@ public class InventoryAddService {
     }
 
     public ApiResponse<Inventory> addInventory(Inventory inventory) {
-        boolean exists = checkProductExists(inventory.getCodigoProducto());
+        boolean exists = checkProductExists(inventory.getProductCode());
         if (!exists) {
-            return new ApiResponse<Inventory>("error", null, "El código de producto no existe en el sistema.");
+            return new ApiResponse<Inventory>("error", null, "The product code does not exist in the system.");
         }
         long totalInventories = _repository.count();
     
         String generatedCode = "INV_" + (totalInventories + 1);
-        inventory.setCodigoInventario(generatedCode);
+        inventory.setInventoryCode(generatedCode);
     
-        inventory.setFechaCreacion(LocalDateTime.now());
-        inventory.setFechaActualizacion(LocalDateTime.now());
+        inventory.setCreatedAt(LocalDateTime.now());
+        inventory.setUpdatedAt(LocalDateTime.now());
     
         _repository.save(inventory);
     
-        return new ApiResponse<Inventory>("success", inventory, "Producto añadido correctamente.");
+        return new ApiResponse<Inventory>("success", inventory, "Product added successfully.");
     }
     
 
-    private boolean checkProductExists(String codigoProducto) {
-        String url = "http://app_producto_search:3000/products/byCodiceProducto/codice?codice=" + codigoProducto;
+    private boolean checkProductExists(String codice) {
+        // String url = "http://localhost:3000/products/byCodiceProducto?codice=" + codice; // local
+        String url = "http://app_producto_search:3000/products/byCodiceProducto?codice=" + codice;
         try {
             Map<String, Object> response = restTemplate.getForObject(url, Map.class);
             String status = (String) response.get("status");
