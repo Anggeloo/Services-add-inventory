@@ -45,8 +45,8 @@ public class InventoryAddService {
     
 
     private boolean checkProductExists(String codice) {
-        String url = "http://localhost:3000/products/byCodiceProducto?codice=" + codice; // local
-        //String url = "http://app_producto_search:3000/products/byCodiceProducto?codice=" + codice;
+        //String url = "http://localhost:3000/products/byCodiceProducto?codice=" + codice; // local
+        String url = "http://app_producto_search:3000/products/byCodiceProducto?codice=" + codice;
         try {
             Map<String, Object> response = restTemplate.getForObject(url, Map.class);
             String status = (String) response.get("status");
