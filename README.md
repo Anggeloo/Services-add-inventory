@@ -1,46 +1,38 @@
-# Service Product Add
+# Services Add Inventory
 
 ## Description
-This microservice allows adding products to the system using a REST API. It is built with Node.js and Express, utilizing PostgreSQL as the database.
+This microservice allows adding inventory items to the system using a REST API. It is built with Java and Spring Boot, utilizing a relational database.
 
 ## Prerequisites
 Ensure you have the following installed:
-- [Node.js](https://nodejs.org/) (v16 or later)
+- [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+- [Maven](https://maven.apache.org/)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 
 ## Environment Variables
-Create a `.env` file in the root directory and configure the required variables
+Create a `.env` file in the root directory and configure the required variables:
 
 ## Installation
-1. Install dependencies:
+1. Build the project using Maven:
    ```sh
-   npm install
+   mvn clean install
    ```
 
-2. Run the service in development mode:
+2. Run the service:
    ```sh
-   npm run dev
-   ```
-   or manually using:
-   ```sh
-   nodemon app.js
-   ```
-
-3. Run the service in production mode:
-   ```sh
-   node app.js
+   mvn spring-boot:run
    ```
 
 ## Running with Docker
 1. Build the Docker image:
    ```sh
-   docker build -t service-product-add .
+   docker build -t services-add-inventory .
    ```
 
 2. Run the container:
    ```sh
-   docker run -p 3000:3000 --env-file .env service-product-add
+   docker run -p 8081:8080 --env-file .env services-add-inventory
    ```
 
 3. Alternatively, use Docker Compose:
@@ -51,19 +43,19 @@ Create a `.env` file in the root directory and configure the required variables
 ## API Documentation
 This service provides API documentation via Swagger. Once the service is running, access it at:
 ```
-http://localhost:3000/api-docs
+http://localhost:5050/swagger-ui/index.html
 ```
 
 ## Database Setup
-Ensure you have a PostgreSQL database running. If using Docker, you can spin up a PostgreSQL container with:
+Ensure you have a MySQL database running. If using Docker, you can spin up a MySQL container with:
 ```sh
-docker run --name postgres-db -e POSTGRES_USER=your_database_user -e POSTGRES_PASSWORD=your_database_password -e POSTGRES_DB=your_database_name -p 5432:5432 -d postgres
+docker run --name mysql-db -e MYSQL_ROOT_PASSWORD=your_root_password -e MYSQL_DATABASE=your_database_name -e MYSQL_USER=your_database_user -e MYSQL_PASSWORD=your_database_password -p 3306:3306 -d mysql:latest
 ```
 
 ## Testing
 Currently, no test scripts are defined. You may add tests and run them using:
 ```sh
-npm test
+mvn test
 ```
 
 ## Authors
